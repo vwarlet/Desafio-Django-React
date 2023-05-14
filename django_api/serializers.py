@@ -60,6 +60,7 @@ class ComissaoSerializer(serializers.ModelSerializer):
 class VendaSerializer(serializers.ModelSerializer):
     cliente = serializers.SerializerMethodField()
     vendedor = serializers.SerializerMethodField()
+    data = serializers.DateTimeField(format="%d/%m/%Y %H:%M:%S")
     produtos_vendidos = serializers.SerializerMethodField()
     total_comissao = serializers.SerializerMethodField()
 
@@ -92,7 +93,7 @@ class VendaSerializer(serializers.ModelSerializer):
         comissao_dia = Comissao.objects.filter(id=obj.data.isoweekday()).first() # segunda: id = 1 ... sexta: id = 5
         total = sum([produto['valor'] * produto['quantidade'] *
                      self.get_comissao_dia(comissao_dia, produto)/100 for produto in produtos])
-        return total
+        return round(total, 2)
 
     class Meta:
         model = Venda

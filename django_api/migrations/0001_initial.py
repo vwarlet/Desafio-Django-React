@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantidade', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(0)])),
-                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_papelaria.produto')),
+                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_api.produto')),
             ],
         ),
         migrations.CreateModel(
@@ -68,14 +68,14 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nota_fiscal', models.CharField(max_length=10, unique=True)),
                 ('data', models.DateTimeField()),
-                ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_papelaria.cliente')),
-                ('produtos', models.ManyToManyField(through='django_papelaria.ProdutoVendido', to='django_papelaria.produto')),
-                ('vendedor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_papelaria.vendedor')),
+                ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_api.cliente')),
+                ('produtos', models.ManyToManyField(through='django_api.ProdutoVendido', to='django_api.produto')),
+                ('vendedor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_api.vendedor')),
             ],
         ),
         migrations.AddField(
             model_name='produtovendido',
             name='venda',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_papelaria.venda'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_api.venda'),
         ),
     ]

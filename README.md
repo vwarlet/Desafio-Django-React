@@ -15,12 +15,13 @@ O nosso cliente é uma papelaria hipotética que gostaria de registrar suas vend
 pip install djangorestframework
 ```
 
-### React
+#### React e Typescript
 ```
-npm i webpack webpack-cli --save-dev
-npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
-npm i react react-dom --save-dev
+npm install typescript --save-dev
+npm install @types/node @types/react @types/react-dom @types/jest --save-dev
+npm install ts-loader --save-dev
 ```
+
 
 ## Execução
 Para executar, basta estar na pasta raiz do projeto e rodar o comando:
@@ -28,7 +29,7 @@ Para executar, basta estar na pasta raiz do projeto e rodar o comando:
 python manage.py runserver
 ```
 
--  A aplicação roda na página inicial http://127.0.0.1:8000
+- A aplicação roda na página inicial http://127.0.0.1:8000
 - Os Endpoints da API são acessados através de http://127.0.0.1:8000/api
 - O acesso de http://127.0.0.1:8000/admin é dado por:
   ```
@@ -36,5 +37,10 @@ python manage.py runserver
   senha: admin
   ```
 
-##### OBS1: O backend ficou praticamente pronto (maior parte da lógica pedida está em django_papelaria/serializers). O total de comissão da venda é calculado e apresentado no Endpoint de Vendas. Assim, é exibida a comissão a ser recebida pelo vendedor referente àquela venda.
-##### OBS2: O frontend com React faltou tempo pra estudar melhor, montei a estrutura inicial, exibindo as vendas com o cálculo do total dos produtos vendidos (cada valor do produto multiplicado por sua quantidade)
+#### OBS Backend
+Ficou praticamente pronto (maior parte da lógica pedida está em django_api/serializers).
+O total de comissão da venda é calculado e apresentado no Endpoint de Vendas. Assim, é exibida a comissão a ser recebida pelo vendedor referente àquela venda.
+
+#### OBS Frontend
+Faltou create e update de Vendas, a parte de inserir os produtos da venda não está funcionando, nem o link 'Ver itens'.
+E a busca por vendas em um determinado período, na tela de Comissão, não funciona, está trazendo todas as vendas da api.

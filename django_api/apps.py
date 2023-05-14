@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DjangoPapelariaConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'django_papelaria'
+    name = 'django_api'
